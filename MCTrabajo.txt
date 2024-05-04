@@ -1,0 +1,51 @@
+stringLab = "00000000000000\n" + \
+            "00000000000000\n" + \
+            "00000000101000\n" + \
+            "00000011111110\n" + \
+            "00000000000010\n" + \
+            "00000000000010\n" + \
+            "00000000000001" 
+"stringLab : es la cadena de texto que contiene el diseño del laberinto."
+ 
+def creaLaberinto(stringLab) :
+
+    """ 
+  
+        Salidas:
+             Laberinto representado por una matriz, tal que
+             la entrada i,j contiene: 0 - si la casilla está
+             libre, 1 - si hay pared, 3 - posición en donde
+             está el queso.
+        Restricciones:
+             Todas las entradas de la tira son 0, 1 o 3. Las
+             filas se representan por un cambio de línea.
+             No hay líneas vacías.
+    """
+ 
+    lista = stringLab.split()
+    lista = [ x[:-1] if x[-1] == "\n" else x for x in lista]
+    lista = [[int(ch) for ch in x] for x in lista]
+    return lista
+
+""" Laberinto representado por una matriz, tal que la entrada i,j contiene: 0 -
+ si la casilla estálibre, 1 - si hay pared, 3 - posición en donde está el queso."""
+
+ 
+def impLab(laberinto):
+     
+    for x in laberinto:
+        for y in x:
+            print(y, end= "")
+        print()
+ 
+laberinto = creaLaberinto(stringLab)
+impLab(laberinto)
+
+""" Imprime un laberinto.
+        Entradas:
+             laberinto : laberinto a imprimir.
+        Salidas:
+             Ninguna.
+        Restricciones:
+             El laberinto está representado por listas de
+             listas, y es una representación consistente. """
